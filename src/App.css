@@ -1,38 +1,206 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "Cheltenham";
+  src: url("./assets/fonts/cheltenham/cheltenham-normal-400.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Cheltenham";
+  src: url("./assets/fonts/cheltenham/cheltenham-normal-800.ttf") format("truetype");
+  font-weight: 800;
+}
+@font-face {
+  font-family: "Franklin";
+  src: url("./assets/fonts/franklin/franklin-normal-500.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Franklin";
+  src: url("./assets/fonts/franklin/franklin-normal-800.ttf") format("truetype");
+  font-weight: 800;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #F2EEE8;
+  font-family: "Cheltenham","Arial","Times New Roman";
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav{
+  display: flex;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+.heading{
+  font-family: "Cheltenham";
+  font-size: 1.875rem;
+  font-weight: 400;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.user-info-form,
+.quiz,
+.result {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 2rem;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+/* .user-info-form label,
+.quiz .options button,
+.result p {
+  margin-bottom: 10px;
+} */
+
+.quiz .options button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.quiz .options button:hover {
+  background-color: #0056b3;
+}
+
+
+
+.btn {
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Franklin";
+  margin-top: 1.5rem;
+}
+.btn--submit{
+  background-color: #222222;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.btn--back{
+  background-color: #F2EEE8;
+  color: #222222;
+  border: 1px solid #222222;
+}
+.btn:hover {
+  background-color: #4e4e4e;
+}
+.option-item {
+  flex: 1 1 calc(50% - 10px);
+  margin: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.option-button {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.option-button:hover {
+  transform: scale(1.05);
+}
+.option-button--active{
+  border: 1px solid #0056b3;
+}
+
+.option-text {
+  position: absolute;
+  bottom: 1px;
+  left:1px;
+  right: 10px;
+  padding-top: 2rem;
+  padding-left: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  width: 100%;
+  height: 10rem;
+  text-align: left;
+  font-family: "Franklin";
+}
+
+.user-info-form{
+  gap: 0.5rem;
+}
+.form-group{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-family: "Franklin";
+}
+.radio-group{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.radio-subgroup{
+  margin: 0;
+}
+.input{
+  height: 2rem;
+  padding: 1rem;
+  background-color: #E0DDDA;
+  border-radius: 0.25rem;
+}
+.input--dropdown{
+  padding-left: 1rem;
+  background-color: #E0DDDA;
+  border-radius: 0.25rem;
+  height: 2rem;
+}
+
+.options-grid{
+  display: grid;
+  grid-template-columns: 49% 49%;
+  grid-row: auto auto;
+  grid-column-gap: 0.5rem;
+  grid-row-gap: 0.5rem;
+}
+
+.navigation-buttons{
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.subheading{
+  font-family: "Franklin";
+  font-size: 1.25rem;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    padding: 2rem 8rem;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media only screen and (min-width: 1024px) {
+
+  body {
+    width: 800px;
+    margin: auto;
   }
 }
