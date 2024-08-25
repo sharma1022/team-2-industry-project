@@ -42,17 +42,19 @@ const App = () => {
       frequency[answer] = (frequency[answer] || 0) + 1;
     });
 
-    let maxFrequency = 0;
-    let personalityType = "";
+    // Sort categories by frequency
+    const sortedCategories = Object.keys(frequency).sort(
+      (a, b) => frequency[b] - frequency[a]
+    );
 
-    for (const category in frequency) {
-      if (frequency[category] > maxFrequency) {
-        maxFrequency = frequency[category];
-        personalityType = category;
-      }
-    }
+    // The most frequent category is the primary personality type
+    const primaryPersonalityType = sortedCategories[0];
 
-    return personalityType;
+    // Return the primary personality type and the top 2 or 3 categories
+    return {
+      personalityType: primaryPersonalityType,
+      topCategories: sortedCategories.slice(0, 3),
+    };
   };
 
   return (
@@ -79,7 +81,7 @@ const App = () => {
               ) : (
                 <Result
                   userInfo={userInfo}
-                  personalityType={calculatePersonalityType()}
+                  resultData={calculatePersonalityType()}
                 />
               )
             }
