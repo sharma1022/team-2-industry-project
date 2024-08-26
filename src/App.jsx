@@ -6,6 +6,7 @@ import Quiz from "./components/Quiz";
 import Result from "./components/Result";
 import { useState } from "react";
 import questions from "./data/questions";
+import Welcome from "./components/Welcome";
 const App = () => {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState([]);
@@ -65,7 +66,7 @@ const App = () => {
       <main>
         <Routes>
           <Route
-            path="/"
+            path="/quiz"
             element={
               step === 0 ? (
                 <UserInfoForm onSubmit={handleFormSubmit} />
@@ -86,6 +87,7 @@ const App = () => {
               )
             }
           />
+          <Route path="*" element={<Welcome />} />
         </Routes>
       </main>
     </div>
