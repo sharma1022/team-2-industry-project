@@ -41,7 +41,7 @@ const UserInfoForm = ({ onSubmit }) => {
           name="age"
           value={formData.age}
           onChange={handleChange}
-          className="input--dropdown"
+          className="input--dropdown form-group-select"
           required
         >
           <option value="" disabled>

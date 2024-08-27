@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import questions from "../data/questions";
 import { Grid } from "react-loader-spinner";
+import ProgressBar from "./ProgressBar";
+import logo from "../assets/NewYorkTimesMonogram.svg";
 
 const Quiz = ({ question, options, onAnswer, step, onNext, onBack }) => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -40,7 +42,7 @@ const Quiz = ({ question, options, onAnswer, step, onNext, onBack }) => {
     return (
       <div className="loader-wrapper">
         <div className="loader-container">
-          <Grid
+          {/* <Grid
             visible={true}
             height="80"
             width="80"
@@ -49,7 +51,8 @@ const Quiz = ({ question, options, onAnswer, step, onNext, onBack }) => {
             radius="12.5"
             wrapperStyle={{}}
             wrapperClass="grid-wrapper"
-          />
+          /> */}
+          <img src={logo} alt="" className="svg-image" />
         </div>
       </div>
     );
@@ -58,11 +61,12 @@ const Quiz = ({ question, options, onAnswer, step, onNext, onBack }) => {
   return (
     <div className="quiz">
       <div className="para">
-        Question {step} of {questions.length}
+        {/* Question {step} of {questions.length} */}
+        <ProgressBar currentStep={step} totalSteps={questions.length} />
       </div>
       <div className="question">
         <h2 className="heading">{question}</h2>
-        <p className="para">(select one.)</p>
+        <p className="para instructions">Select one.</p>
       </div>
       <ul className="options-grid">
         {options.map((option, index) => (
@@ -71,7 +75,9 @@ const Quiz = ({ question, options, onAnswer, step, onNext, onBack }) => {
               <button
                 onClick={() => handleAnswer(option)}
                 className="option-button"
-                style={{ backgroundImage: `url(${option.image})` }}
+                style={{
+                  backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.70) ,rgba(0, 0, 0, 0.00)), url(${option.image})`,
+                }}
               >
                 <span className="option-text">{option.text}</span>
               </button>
