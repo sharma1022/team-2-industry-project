@@ -129,7 +129,13 @@ const Result = ({ userInfo, resultData }) => {
       </div>
 
       <div className="action-buttons">
-        <button className="btn btn--back">Subscribe</button>
+        <Link
+          to={"https://www.nytimes.com/subscription"}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className="btn btn--back">Subscribe</button>
+        </Link>
         <button className="btn btn--submit" onClick={openShareModal}>
           Save & Share
         </button>
