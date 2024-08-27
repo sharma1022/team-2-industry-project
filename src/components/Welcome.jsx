@@ -4,22 +4,22 @@ import logo from "../assets/NewYorkTimesMonogram.svg";
 import quiz from "../assets/quiz.svg";
 
 function Welcome() {
-  const [currentIndex, setCurrentIndex] = useState(2);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const items = ["logo", "title", "start"];
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurrentIndex((prevIndex) => {
-  //       if (prevIndex + 1 === items.length) {
-  //         clearInterval(interval);
-  //         return prevIndex; // Keep the last item displayed
-  //       }
-  //       return prevIndex + 1;
-  //     });
-  //   }, 2000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => {
+        if (prevIndex + 1 === items.length) {
+          clearInterval(interval);
+          return prevIndex; // Keep the last item displayed
+        }
+        return prevIndex + 1;
+      });
+    }, 2000);
 
-  //   return () => clearInterval(interval);
-  // }, [items.length]);
+    return () => clearInterval(interval);
+  }, [items.length]);
 
   return (
     <div className="container">
