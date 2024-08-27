@@ -57,8 +57,12 @@ const Quiz = ({ question, options, onAnswer, step, onNext, onBack }) => {
 
   return (
     <div className="quiz">
+      <div className="para">
+        Question {step} of {questions.length}
+      </div>
       <div className="question">
         <h2 className="heading">{question}</h2>
+        <p className="para">(select one.)</p>
       </div>
       <ul className="options-grid">
         {options.map((option, index) => (
@@ -88,7 +92,7 @@ const Quiz = ({ question, options, onAnswer, step, onNext, onBack }) => {
           onClick={onNext}
           disabled={step > questions.length}
         >
-          Next
+          Skip
         </button>
       </div>
     </div>

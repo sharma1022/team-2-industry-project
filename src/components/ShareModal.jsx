@@ -1,5 +1,6 @@
 import React from "react";
-
+import { FaFacebook } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 const ShareModal = ({
   show,
   onClose,
@@ -41,9 +42,10 @@ const ShareModal = ({
                 "_blank"
               )
             }
-            className="btn btn--submit"
+            className="btn btn--submit btn--share"
           >
-            Share on X
+            Share on &nbsp;
+            <FaXTwitter />
           </button>
           <button
             onClick={() =>
@@ -54,9 +56,10 @@ const ShareModal = ({
                 "_blank"
               )
             }
-            className="btn btn--submit"
+            className="btn btn--submit btn--share"
           >
-            Share on Facebook
+            Share on &nbsp;
+            <FaFacebook />
           </button>
           <button onClick={onClose} className="btn btn--back">
             Close

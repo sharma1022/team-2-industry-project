@@ -45,7 +45,7 @@ body {
   font-size: 1.875rem;
   font-weight: 400;
   line-height: 1.8rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0 0.5rem ;
 }
 
 .user-info-form,
@@ -83,6 +83,8 @@ body {
   cursor: pointer;
   font-family: "Franklin";
   margin-top: 1rem;
+  
+  
 }
 .btn--submit {
   background-color: #222222;
@@ -164,10 +166,15 @@ body {
   border-radius: 0.25rem;
 }
 .input--dropdown {
-  padding-left: 1rem;
+  padding:0 1rem;
   background-color: #e0ddda;
   border-radius: 0.25rem;
   height: 2rem;
+  
+}
+.input--dropdown:after{
+  top: 0px !important;
+  right: 0px !important;
 }
 
 .options-grid {
@@ -203,7 +210,7 @@ body {
 .category-tabs {
   display: flex;
   justify-content: space-around;
-  margin: 20px 0;
+  margin: 1rem 0;
   gap: 1rem;
   font-family: "Franklin";
 }
@@ -231,7 +238,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
+  
   gap: 0.25rem;
   margin-bottom: 0.5rem;
 }
@@ -266,6 +273,7 @@ body {
   font-family: "Franklin";
   font-size: 16px;
   margin: 0;
+  margin-bottom: 0.5rem;
 }
 .recommended {
   margin-top: 1rem;
@@ -513,14 +521,26 @@ body {
 .modal-buttons {
   margin-top: 20px;
 }
+.btn--share{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.link-wrapper{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
 
-.btn--copy,
-.btn--share,
-.btn--close {
-  margin: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  color: #222222;
-  color: white;
+.card-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  align-items: flex-start;
+}
+.name{
   font-family: "Franklin";
+  font-size: 1.5rem;
 }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ShareModal from "./ShareModal";
+import { FaExternalLinkAlt } from "react-icons/fa";
 const Result = ({ userInfo, resultData }) => {
   const { personalityType, topCategories } = resultData;
 
@@ -107,7 +108,7 @@ const Result = ({ userInfo, resultData }) => {
           </button>
         ))}
       </div>
-
+      <p className="para">Click for preview on a product below.</p>
       <div className="category-details">
         {selectedCategories.map((category, index) => (
           <Link
@@ -117,18 +118,23 @@ const Result = ({ userInfo, resultData }) => {
             rel="noopener noreferrer"
           >
             <div className="category-card">
-              <h3 className="card-heading">
-                {categoryMessages[category].title}
-              </h3>
-              <p className="card-para">
-                {categoryMessages[category].description}
-              </p>
+              <div className="link-wrapper">
+                <FaExternalLinkAlt />
+              </div>
+              <div className="card-text">
+                <h3 className="card-heading">
+                  {categoryMessages[category].title}
+                </h3>
+                <p className="card-para">
+                  {categoryMessages[category].description}
+                </p>
+              </div>
             </div>
           </Link>
         ))}
       </div>
 
-      <div className="action-buttons">
+      <div className="result-action-buttons">
         <Link
           to={"https://www.nytimes.com/subscription"}
           target="_blank"

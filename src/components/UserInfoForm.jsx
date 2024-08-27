@@ -22,7 +22,7 @@ const UserInfoForm = ({ onSubmit }) => {
 
   return (
     <form className="user-info-form" onSubmit={handleSubmit}>
-      <h1 className="heading">Let's get to know each other little better</h1>
+      <h1 className="heading">Let's get to know each other little better.</h1>
       <label className="form-group">
         <b>Name</b>
         <input
