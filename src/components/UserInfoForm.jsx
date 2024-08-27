@@ -24,7 +24,7 @@ const UserInfoForm = ({ onSubmit }) => {
     <form className="user-info-form" onSubmit={handleSubmit}>
       <h1 className="heading">Let's get to know each other little better</h1>
       <label className="form-group">
-        Name:
+        <b>Name</b>
         <input
           type="text"
           name="name"
@@ -36,7 +36,7 @@ const UserInfoForm = ({ onSubmit }) => {
         />
       </label>
       <label className="form-group">
-        Age:
+        <b>Age</b>
         <select
           name="age"
           value={formData.age}
@@ -57,7 +57,7 @@ const UserInfoForm = ({ onSubmit }) => {
         </select>
       </label>
       <label className="form-group">
-        Gender:
+        <b>Gender</b>
         <div className="radio-group">
           <label className="radio-subgroup">
             <input
@@ -98,7 +98,7 @@ const UserInfoForm = ({ onSubmit }) => {
         </div>
       </label>
       <label className="form-group">
-        Occupation:
+        <b>Occupation</b>
         <select
           name="occupation"
           value={formData.occupation}
@@ -131,7 +131,7 @@ const UserInfoForm = ({ onSubmit }) => {
         </select>
       </label>
       <label className="form-group">
-        Email:
+        <b>Email</b>
         <input
           type="email"
           name="email"
@@ -143,7 +143,7 @@ const UserInfoForm = ({ onSubmit }) => {
         />
       </label>
       <label className="form-group">
-        Location:
+        <b>Location</b>
         <input
           type="text"
           name="location"
