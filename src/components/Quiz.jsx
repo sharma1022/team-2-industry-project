@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import questions from "../data/questions";
-import { Grid } from "react-loader-spinner";
+// import { Grid } from "react-loader-spinner";
 import ProgressBar from "./ProgressBar";
 import logo from "../assets/NewYorkTimesMonogram.svg";
 
@@ -28,6 +28,10 @@ const Quiz = ({ question, options, onAnswer, step, onNext, onBack }) => {
     };
 
     loadImages();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }, [options]);
 
   const handleAnswer = (option) => {
@@ -66,7 +70,7 @@ const Quiz = ({ question, options, onAnswer, step, onNext, onBack }) => {
       </div>
       <div className="question">
         <h2 className="heading">{question}</h2>
-        <p className="para instructions">Select one.</p>
+        <p className="para instructions">Select one to proceed.</p>
       </div>
       <ul className="options-grid">
         {options.map((option, index) => (
@@ -76,7 +80,7 @@ const Quiz = ({ question, options, onAnswer, step, onNext, onBack }) => {
                 onClick={() => handleAnswer(option)}
                 className="option-button"
                 style={{
-                  backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.70) ,rgba(0, 0, 0, 0.00)), url(${option.image})`,
+                  background: `linear-gradient(180deg, rgba(0, 0, 0, 0.50) 60%, rgba(0, 0, 0, 0.00) 100%), url(${option.image}) lightgray 50% / cover no-repeat`,
                 }}
               >
                 <span className="option-text">{option.text}</span>

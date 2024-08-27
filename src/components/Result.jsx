@@ -108,7 +108,8 @@ const Result = ({ userInfo, resultData }) => {
           </button>
         ))}
       </div>
-      <p className="para">Click for preview on a product below.</p>
+      <hr />
+      <p className="para">Click on a product below to preview it.</p>
       <div className="category-details">
         {selectedCategories.map((category, index) => (
           <Link

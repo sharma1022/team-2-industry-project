@@ -58,7 +58,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <header>
+      <header className="navbar">
         <Navbar />
       </header>
       <main>

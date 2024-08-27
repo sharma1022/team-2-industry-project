@@ -35,11 +35,13 @@ body {
   justify-content: center;
   align-items: center;
 }
-/* .app {
-  max-width: 600px;
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
-} */
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: #f2eee8;
+  z-index: 1000;
+}
+
 .heading {
   font-family: "Cheltenham";
   font-size: 1.875rem;
@@ -58,12 +60,6 @@ body {
   margin-bottom: 20px;
   border-radius: 5px;
 }
-
-/* .user-info-form label,
-.quiz .options button,
-.result p {
-  margin-bottom: 10px;
-} */
 
 .quiz .options button {
   color: white;
@@ -161,16 +157,6 @@ body {
   background-color: #e0ddda;
   border-radius: 0.25rem;
 }
-/* .input--dropdown {
-  padding: 0 1rem;
-  background-color: #e0ddda;
-  border-radius: 0.25rem;
-  height: 2rem;
-}
-.input--dropdown:after {
-  top: 0px !important;
-  right: 0px !important;
-} */
 
 .options-grid {
   display: grid;
@@ -184,6 +170,13 @@ body {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
+
+  /* position: sticky;
+  bottom: 0;
+  background-color: #f2eee8;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  z-index: 1000; */
 }
 .subheading {
   font-family: "Franklin";
@@ -297,8 +290,6 @@ body {
   justify-content: center;
   width: 100svw;
   height: 100svh;
-
-  /* flex-direction: column; */
   position: relative;
 }
 
@@ -333,7 +324,6 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  /* flex: 1 0 0; */
   align-self: stretch;
 }
 .quiz-welcome {
@@ -380,9 +370,7 @@ body {
 
 .cta-action-section {
   padding-top: 24px;
-  /* padding-bottom: 24px; */
   display: flex;
-  /* width: 336px; */
   flex-direction: column;
   align-items: center;
   /* position: absolute;
@@ -403,7 +391,6 @@ body {
   width: 90%;
   gap: 1rem;
   border-radius: 20px;
-  /* border: 2px solid red; */
 }
 
 .cta-button {
@@ -447,7 +434,6 @@ body {
 
 .quiz-logo__image {
   height: 20svh;
-  /* height: 10%; */
 }
 
 .start-container {
@@ -460,7 +446,6 @@ body {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../src/assets/nyt-screenshot.png");
   background-size: cover;
-  /* background-size: contain; */
   background-position: top;
   background-repeat: no-repeat;
   background-color: rgba(0, 0, 0, 0.5);
@@ -564,7 +549,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin: 20px 0; */
 }
 
 .ellipse {
@@ -581,14 +565,11 @@ body {
 }
 
 .input--dropdown {
-  /* styling */
   border-radius: 4px;
   display: inline-block;
   font: inherit;
   line-height: 1.5em;
   padding: 0.5em 3.5em 0.5em 1em;
-
-  /* reset */
 
   margin: 0;
   -webkit-box-sizing: border-box;
@@ -609,13 +590,13 @@ body {
 }
 
 .input--dropdown:focus {
-  background-image: linear-gradient(45deg, green 50%, transparent 50%),
-    linear-gradient(135deg, transparent 50%, green 50%),
+  background-image: linear-gradient(45deg, black 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, black 50%),
     linear-gradient(to right, #ccc, #ccc);
   background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
     calc(100% - 2.5em) 0.5em;
   background-size: 5px 5px, 5px 5px, 1px 1.5em;
   background-repeat: no-repeat;
-  border-color: green;
+  border-color: black;
   outline: 0;
 }
