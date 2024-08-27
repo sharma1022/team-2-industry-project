@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import ShareModal from "./ShareModal";
 const Result = ({ userInfo, resultData }) => {
   const { personalityType, topCategories } = resultData;
 
@@ -62,7 +62,24 @@ const Result = ({ userInfo, resultData }) => {
     },
   };
 
-  const [selectedCategory, setSelectedCategory] = useState(topCategories[0]);
+  const [selectedCategories, setSelectedCategories] = useState(topCategories);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleCategorySelection = (category) => {
+    setSelectedCategories((prevSelected) =>
+      prevSelected.includes(category)
+        ? prevSelected.filter((cat) => cat !== category)
+        : [...prevSelected, category]
+    );
+  };
+
+  const openShareModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeShareModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <div className="result">
@@ -82,9 +99,9 @@ const Result = ({ userInfo, resultData }) => {
           <button
             key={index}
             className={`category-tab ${
-              selectedCategory === category ? "active" : ""
+              selectedCategories.includes(category) ? "active" : ""
             }`}
-            onClick={() => setSelectedCategory(category)}
+            onClick={() => toggleCategorySelection(category)}
           >
             {categoryMessages[category].title}
           </button>
@@ -92,28 +109,40 @@ const Result = ({ userInfo, resultData }) => {
       </div>
 
       <div className="category-details">
-        {categoryMessages[selectedCategory] && (
+        {selectedCategories.map((category, index) => (
           <Link
-            to={categoryMessages[selectedCategory].url}
+            key={index}
+            to={categoryMessages[category].url}
             target="_blank"
             rel="noopener noreferrer"
           >
             <div className="category-card">
               <h3 className="card-heading">
-                {categoryMessages[selectedCategory].title}
+                {categoryMessages[category].title}
               </h3>
               <p className="card-para">
-                {categoryMessages[selectedCategory].description}
+                {categoryMessages[category].description}
               </p>
             </div>
           </Link>
-        )}
+        ))}
       </div>
 
       <div className="action-buttons">
         <button className="btn btn--back">Subscribe</button>
-        <button className="btn btn--submit">Save & Share</button>
+        <button className="btn btn--submit" onClick={openShareModal}>
+          Save & Share
+        </button>
       </div>
+
+      <ShareModal
+        show={isModalOpen}
+        onClose={closeShareModal}
+        selectedCategories={selectedCategories}
+        personalityType={personalityType}
+        categoryMessages={categoryMessages}
+        personalityMessages={personalityMessages}
+      />
     </div>
   );
 };

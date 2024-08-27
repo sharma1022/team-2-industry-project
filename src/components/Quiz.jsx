@@ -1,7 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import questions from "../data/questions";
+import { Grid } from "react-loader-spinner";
 
 const Quiz = ({ question, options, onAnswer, step, onNext, onBack }) => {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    const loadImages = () => {
+      const imagePromises = options.map((option) => {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.src = option.image;
+          img.onload = resolve;
+          img.onerror = reject;
+        });
+      });
+
+      Promise.all(imagePromises)
+        .then(() => {
+          setImagesLoaded(true);
+        })
+        .catch((error) => {
+          console.error("Failed to preload images", error);
+        });
+    };
+
+    loadImages();
+  }, [options]);
+
   const handleAnswer = (option) => {
     const selectedOptionIndex = options.findIndex(
       (opt) => opt.text === option.text
@@ -9,6 +35,25 @@ const Quiz = ({ question, options, onAnswer, step, onNext, onBack }) => {
     const category = questions[step - 1].categories[selectedOptionIndex];
     onAnswer(category);
   };
+
+  if (!imagesLoaded) {
+    return (
+      <div className="loader-wrapper">
+        <div className="loader-container">
+          <Grid
+            visible={true}
+            height="80"
+            width="80"
+            color="#222222"
+            ariaLabel="grid-loading"
+            radius="12.5"
+            wrapperStyle={{}}
+            wrapperClass="grid-wrapper"
+          />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="quiz">

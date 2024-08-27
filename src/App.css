@@ -44,6 +44,8 @@ body {
   font-family: "Cheltenham";
   font-size: 1.875rem;
   font-weight: 400;
+  line-height: 1.8rem;
+  margin-bottom: 1rem;
 }
 
 .user-info-form,
@@ -51,7 +53,7 @@ body {
 .result {
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 1rem 2rem;
   border: 1px solid #ccc;
   margin-bottom: 20px;
   border-radius: 5px;
@@ -64,8 +66,7 @@ body {
 } */
 
 .quiz .options button {
-  padding: 10px;
-  background-color: #007bff;
+  
   color: white;
   border: none;
   border-radius: 5px;
@@ -73,9 +74,6 @@ body {
   margin-bottom: 10px;
 }
 
-.quiz .options button:hover {
-  background-color: #0056b3;
-}
 
 .btn {
   padding: 10px;
@@ -84,7 +82,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   font-family: "Franklin";
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 .btn--submit {
   background-color: #222222;
@@ -95,7 +93,7 @@ body {
   color: #222222;
   border: 1px solid #222222;
 }
-.btn:hover {
+.btn--submit:hover {
   background-color: #4e4e4e;
 }
 .option-item {
@@ -129,10 +127,9 @@ body {
 .option-text {
   position: absolute;
   bottom: 1px;
-  left: 1px;
+  left: 0px;
   right: 10px;
-  padding-top: 2rem;
-  padding-left: 1rem;
+  padding: 2rem 0.75rem 0.75rem 1rem;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   font-size: 16px;
@@ -226,9 +223,6 @@ body {
   color: white;
 }
 
-.category-details {
-  margin: 20px 0;
-}
 
 .category-card {
   background-color: #cccccc;
@@ -238,6 +232,8 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  gap: 0.2s5rem;
+  margin-bottom: 0.5rem;
 }
 
 .category-card h3 {
@@ -451,4 +447,73 @@ body {
 .quiz-logo__image {
   width: 311.551px;
   height: 275px;
+}
+
+
+.fade-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.fade-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+.fade-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+.fade-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+.loader-wrapper{
+  height: 28rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #f2eee8;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.modal-heading {
+  margin-bottom: 15px;
+}
+
+.modal-buttons {
+  margin-top: 20px;
+}
+
+.btn--copy,
+.btn--share,
+.btn--close {
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #222222;
+  color: white;
+  font-family: "Franklin";
 }
